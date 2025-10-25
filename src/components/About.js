@@ -16,8 +16,8 @@ const About = () => {
           <div  className="about" id='about'>
               <div className="container">
                   <motion.div initial={{x: '-100%', opacity: 0}} whileInView={horizontal} viewport={{ once: true }} className="heading">
-                    <p className="heading-sub-text">Who I am</p>
-                    <p className='heading-text'>About Me</p>
+                    <p className="heading-sub-text">Quién soy</p>
+                    <p className='heading-text'>Sobre Mí</p>
                   </motion.div>
                   <div className="split-about">
                     <motion.div initial={{x: '-100%', opacity: 0}} whileInView={horizontal} className="about-content">

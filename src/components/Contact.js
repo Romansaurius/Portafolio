@@ -83,8 +83,8 @@ const Contact = () => {
 						initial={{ opacity: 0 }}
 						whileInView={fade}
 						viewport={{ once: true }}>
-						<p className='heading-sub-text'>Hire Me</p>
-						<p className='heading-text'>Get in Touch</p>
+						<p className='heading-sub-text'>Contrátame</p>
+						<p className='heading-text'>Ponte en Contacto</p>
 					</motion.div>
 					<div className='contact-box'>
 						<motion.div
@@ -99,7 +99,7 @@ const Contact = () => {
 								</p>
 							</div>
 							<div className='contact-hello'>
-								<p>Say Hello</p>
+								<p>Di Hola</p>
 								<Link
 									className='hello-links'
 									to='//wa.me/+541166405591'
@@ -131,27 +131,27 @@ const Contact = () => {
 
 								<div className='form-top'>
 									<div className='name'>
-										<label htmlFor='name'>Your Name</label>
+										<label htmlFor='name'>Tu Nombre</label>
 										<input
 											type='text'
 											name='name'
 											id='name'
 											value={formData.name}
 											onChange={handleChange}
-											placeholder='Enter your name'
+											placeholder='Ingresa tu nombre'
 											required
 										/>
 									</div>
 
 									<div className='email'>
-										<label htmlFor='email'>Your Email</label>
+										<label htmlFor='email'>Tu Email</label>
 										<input
 											type='email'
 											name='email'
 											id='email'
 											value={formData.email}
 											onChange={handleChange}
-											placeholder='Enter your email address'
+											placeholder='Ingresa tu dirección de email'
 											required
 										/>
 									</div>
@@ -159,7 +159,7 @@ const Contact = () => {
 
 								<div className='form-mid'>
 									<div className='message'>
-										<label htmlFor='message'>Your message</label>
+										<label htmlFor='message'>Tu mensaje</label>
 										<textarea
 											type='text'
 											name='message'
@@ -176,7 +176,7 @@ const Contact = () => {
 										type='submit'
 										disabled={isSubmitting}
 										className='hero-contact'>
-										{isSubmitting ? "Sending..." : "Send Message"}
+										{isSubmitting ? "Enviando..." : "Enviar Mensaje"}
 									</button>
 								</div>
 							</form>

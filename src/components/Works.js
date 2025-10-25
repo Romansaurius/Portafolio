@@ -28,8 +28,8 @@ const Works = () => {
 					whileInView={fade}
 					viewport={{ once: true }}
 					className='heading'>
-					<p className='heading-sub-text'>I build real value</p>
-					<p className='heading-text'>Works</p>
+					<p className='heading-sub-text'>Construyo valor real</p>
+					<p className='heading-text'>Proyectos</p>
 				</motion.div>
 
 				<div className='tabs'>
