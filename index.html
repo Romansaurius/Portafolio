@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roman Ranucci | Técnico Informático</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #00021a;
+            color: #a8a9b4;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            bottom: 0;
+            background-color: #00021a;
+            color: #fff;
+            width: 300px;
+            transition: left 0.5s ease;
+            z-index: 999;
+            padding: 1rem;
+        }
+
+        .navbar.active {
+            left: 0;
+        }
+
+        .navbar-container {
+            padding: 1rem;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 5px solid #2c2f3f;
+            margin-bottom: 1rem;
+        }
+
+        .profile-name {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        .nav-links a {
+            margin: 0 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .mid-links {
+            display: block;
+            color: #a8a9b4;
+            text-decoration: none;
+            padding: 1rem 0;
+            font-size: 1rem;
+        }
+
+        .mid-links:hover {
+            color: #149ddd;
+        }
+
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('./images/hero-bg-1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .hero-intro {
+            font-size: 4rem;
+            color: #149ddd;
+            margin-bottom: 1rem;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-contact {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 1px solid #149ddd;
+            color: #149ddd;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .hero-contact:hover {
+            background: #149ddd;
+            color: #fff;
+        }
+
+        .menu-icon {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: #149ddd;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .to-top-icon {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background: #149ddd;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .heading-sub-text {
+            color: #ccd6f6;
+            font-size: 1rem;
+        }
+
+        .heading-text {
+            color: #ccd6f6;
+            font-size: 2.5rem;
+        }
+
+        .about-content {
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .about-img img {
+            width: 300px;
+            height: 300px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .split-about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .skills-box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .skill-card {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 5px;
+            color: #149ddd;
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-desc {
+            font-size: 1rem;
+        }
+
+        .services-box {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .services-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 5px;
+            max-width: 300px;
+        }
+
+        .services-icon {
+            font-size: 3rem;
+            color: #149ddd;
+            margin-bottom: 1rem;
+        }
+
+        .services-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .services-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .works-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .works-card {
+            background: #112240;
+            border-radius: 5px;
+            padding: 1rem;
+            width: 300px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .work-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-desc {
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .bottom-work {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .bottom-work small {
+            background: #149ddd;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-heading p {
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .hello-links {
+            color: #0e668f;
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .hello-links:hover {
+            color: #149ddd;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form div {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #fff;
+            color: #fff;
+        }
+
+        button[type="submit"] {
+            padding: 1rem;
+            background: #149ddd;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background: #0e668f;
+        }
+
+        @media (max-width: 768px) {
+            .split-about {
+                grid-template-columns: 1fr;
+            }
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+            .skills-box {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-box {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="navbar-container">
+            <div class="top-details">
+                <img src="./images/profile_me.jpg" alt="Profile" class="profile-pic" />
+                <a href="#home" class="profile-name">Roman Ranucci</a>
+                <div class="nav-links">
+                    <a href="https://twitter.com/_pappy_jay_" target="_blank">🐦</a>
+                    <a href="https://www.linkedin.com/in/pappyjay" target="_blank">💼</a>
+                    <a href="https://github.com/Pappyjay23" target="_blank">🐙</a>
+                    <a href="mailto:romanranucci.dev@gmail.com">✉️</a>
+                </div>
+            </div>
+            <div class="mid-details">
+                <a href="#home" class="mid-links">🏠 Home</a>
+                <a href="#about" class="mid-links">👤 About</a>
+                <a href="#skills" class="mid-links">💻 Skills</a>
+                <a href="#services" class="mid-links">⚙️ Services</a>
+                <a href="#works" class="mid-links">📁 Works</a>
+                <a href="#contact" class="mid-links">📧 Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <button id="menu-icon" class="menu-icon">☰</button>
+        <button id="to-top-icon" class="to-top-icon">↑</button>
+        <div class="hero-content">
+            <h1 class="hero-intro">Roman Ranucci</h1>
+            <p class="hero-desc">Soy Técnico Informático</p>
+        </div>
+        <a href="./data/Peace Jinadu-Paul Resume.pdf" download="Roman Ranucci CV" class="hero-contact">Descargar CV 📄</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="heading">
+                <p class="heading-sub-text">Who I am</p>
+                <p class="heading-text">About Me</p>
+            </div>
+            <div class="split-about">
+                <div class="about-content">
+                    <p>Soy Técnico Informático con experiencia en desarrollo backend, especialmente en Python, incluyendo proyectos de procesamiento de datos e integración de IA y librerías especializadas. Cuento con sólidos conocimientos en programación, bases de datos y, de manera complementaria, automatización de tareas mediante scripts en entornos Linux.</p>
+                    <br />
+                    <p>Busco seguir desarrollándome profesionalmente en equipos donde la innovación y la eficiencia tecnológica sean pilares fundamentales.</p>
+                </div>
+                <div class="about-img">
+                    <img src="./images/profile_me.jpg" alt="Profile" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="heading">
+                <p class="heading-sub-text">What I work with</p>
+                <p class="heading-text">My Skills</p>
+            </div>
+            <div class="skills-box">
+                <div class="skill-card">
+                    <div class="skill-icon">🐘</div>
+                    <small class="skill-desc">PHP</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🐍</div>
+                    <small class="skill-desc">Python</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🟨</div>
+                    <small class="skill-desc">JavaScript</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🏗️</div>
+                    <small class="skill-desc">HTML</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <small class="skill-desc">CSS</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <small class="skill-desc">MySQL</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <small class="skill-desc">SQLite</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📚</div>
+                    <small class="skill-desc">Git</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🐙</div>
+                    <small class="skill-desc">GitHub</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔗</div>
+                    <small class="skill-desc">APIs REST</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📄</div>
+                    <small class="skill-desc">JSON</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <small class="skill-desc">Bash Scripts</small>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🐧</div>
+                    <small class="skill-desc">Linux</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="heading">
+                <p class="heading-sub-text">What I can do</p>
+                <p class="heading-text">Services</p>
+            </div>
+            <div class="services-box">
+                <div class="services-card">
+                    <span class="services-icon">💻</span>
+                    <p class="services-title">Web Development</p>
+                    <p class="services-desc">I use various web technologies to develop attractive, creative, interactive, responsive and functional website layouts.</p>
+                </div>
+                <div class="services-card">
+                    <span class="services-icon">🎨</span>
+                    <p class="services-title">UI Design</p>
+                    <p class="services-desc">I work with certain design tools to create high-fidelity designs and prototypes. I design accessible and usable products which aid business growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works" class="works">
+        <div class="container">
+            <div class="heading">
+                <p class="heading-sub-text">I build real value</p>
+                <p class="heading-text">Works</p>
+            </div>
+            <div class="works-box">
+                <div class="works-card">
+                    <p class="work-title">Halo</p>
+                    <p class="work-desc">Premium landing experience showcasing immersive GSAP animations, smooth scrolling, and 3D visuals.</p>
+                    <div class="bottom-work">
+                        <small>Next.js</small><small>Three.js</small><small>GSAP</small><small>TailwindCss</small>
+                    </div>
+                </div>
+                <div class="works-card">
+                    <p class="work-title">Techi-Dashboard</p>
+                    <p class="work-desc">Jira-style task manager with drag-and-drop tasks and Context API state management.</p>
+                    <div class="bottom-work">
+                        <small>React.js</small><small>Dnd-Kit</small><small>TailwindCss</small><small>Context API</small>
+                    </div>
+                </div>
+                <div class="works-card">
+                    <p class="work-title">Netflix Clone</p>
+                    <p class="work-desc">Custom Netflix-style UI with API integration and responsive layouts.</p>
+                    <div class="bottom-work">
+                        <small>React.js</small><small>Firebase</small><small>TailwindCss</small><small>APIs</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="heading">
+                <p class="heading-sub-text">Hire Me</p>
+                <p class="heading-text">Get in Touch</p>
+            </div>
+            <div class="contact-box">
+                <div class="left-box">
+                    <div class="contact-heading">
+                        <p>Estoy interesado en oportunidades de desarrollo – especialmente proyectos ambiciosos o grandes. Sin embargo, si tienes otras solicitudes o preguntas, no dudes en usar el formulario</p>
+                    </div>
+                    <div class="contact-hello">
+                        <p>Say Hello</p>
+                        <a class="hello-links" href="https://wa.me/+541166405591" target="_blank">wa.me/romanranucci</a>
+                        <a class="hello-links" href="mailto:romanranucci.dev@gmail.com" target="_blank">romanranucci.dev@gmail.com</a>
+                    </div>
+                </div>
+                <div class="right-box">
+                    <form id="contact-form">
+                        <div>
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+                        <div>
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+                        <div>
+                            <label for="message">Your message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Navbar toggle
+        const navbar = document.getElementById('navbar');
+        const menuIcon = document.getElementById('menu-icon');
+        const toTopIcon = document.getElementById('to-top-icon');
+
+        menuIcon.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        // Scroll to top
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                toTopIcon.style.display = 'block';
+            } else {
+                toTopIcon.style.display = 'none';
+            }
+        });
+
+        toTopIcon.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    navbar.classList.remove('active');
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
