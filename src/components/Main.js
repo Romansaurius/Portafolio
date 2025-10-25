@@ -11,9 +11,9 @@ const Main = ({nav, handleNav, closeNav}) => {
     <div onClick={closeNav } className='main'>
         <HeroSection nav={nav} handleNav={handleNav} />
         <About />
+        <Works />
         <Skills />
         <Services />
-        <Works />
         <Contact />
     </div>
   )
