@@ -16,7 +16,11 @@ const WorkCard = ({ w, tabId }) => {
 					<div className='works-card'>
 						<div className='works-container'>
 							<div className='top-work'>
-								<FiFolder className='work-folder' />
+								{w.img ? (
+									<img src={w.img} alt={w.title} className='work-image' />
+								) : (
+									<FiFolder className='work-folder' />
+								)}
 								<div className='right'>
 									{w.gitlink && (
 										<Link className='work-git' to={w.gitlink} target='_blank'>
@@ -51,7 +55,11 @@ const WorkCard = ({ w, tabId }) => {
 					<div className='works-card'>
 						<div className='works-container'>
 							<div className='top-work'>
-								<FiFolder className='work-folder' />
+								{w.img ? (
+									<img src={w.img} alt={w.title} className='work-image' />
+								) : (
+									<FiFolder className='work-folder' />
+								)}
 								<div className='right'>
 									{w.gitlink && (
 										<Link className='work-git' to={w.gitlink} target='_blank'>

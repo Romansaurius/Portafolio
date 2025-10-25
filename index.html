@@ -275,6 +275,13 @@
             font-size: 0.7rem;
         }
 
+        .work-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
         .contact-box {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -480,22 +487,49 @@
             </div>
             <div class="works-box">
                 <div class="works-card">
-                    <p class="work-title">Datasnap</p>
-                    <p class="work-desc">Aplicación web para gestión de datos y análisis de información empresarial.</p>
+                    <div class="top-work">
+                        <img src="./src/img/datasnap.svg" alt="DataSnap" class="work-image" />
+                        <div class="right">
+                            <a href="https://github.com/Romansaurius/Datasnap" target="_blank" class="work-git">🐙</a>
+                            <a href="https://datasnap.escuelarobertoarlt.com/" target="_blank" class="work-link">🔗</a>
+                        </div>
+                    </div>
+                    <div class="mid-work">
+                        <p class="work-title">DataSnap</p>
+                        <p class="work-desc">Web inteligente para procesar y limpiar bases de datos (CSV, JSON, TXT, MySQL). Incluye Python, Pandas y Flask.</p>
+                    </div>
                     <div class="bottom-work">
-                        <small>React.js</small><small>Node.js</small><small>MongoDB</small><small>Chart.js</small>
+                        <small>Python</small><small>Pandas</small><small>Flask</small><small>MySQL</small>
                     </div>
                 </div>
                 <div class="works-card">
-                    <p class="work-title">Guardería Canina</p>
-                    <p class="work-desc">Sistema de gestión para guardería de perros con reservas online y seguimiento de mascotas.</p>
+                    <div class="top-work">
+                        <img src="./src/img/logo 5.png" alt="Guardería Canina" class="work-image" />
+                        <div class="right">
+                            <a href="https://github.com/romanranucci/guarderia-canina" target="_blank" class="work-git">🐙</a>
+                            <a href="https://guarderia-canina.vercel.app" target="_blank" class="work-link">🔗</a>
+                        </div>
+                    </div>
+                    <div class="mid-work">
+                        <p class="work-title">Guardería Canina</p>
+                        <p class="work-desc">Sistema de gestión para guardería de perros con reservas online y seguimiento de mascotas.</p>
+                    </div>
                     <div class="bottom-work">
                         <small>React.js</small><small>Express.js</small><small>PostgreSQL</small><small>Stripe</small>
                     </div>
                 </div>
                 <div class="works-card">
-                    <p class="work-title">Barra Móviles</p>
-                    <p class="work-desc">Aplicación móvil para gestión de pedidos y inventario en bares y restaurantes.</p>
+                    <div class="top-work">
+                        <img src="./src/img/descarga.jpg" alt="Barra Móviles" class="work-image" />
+                        <div class="right">
+                            <a href="https://github.com/romanranucci/barra-moviles" target="_blank" class="work-git">🐙</a>
+                            <a href="https://drive.google.com/uc?export=download&id=barra-moviles-apk" target="_blank" class="work-link">📱</a>
+                        </div>
+                    </div>
+                    <div class="mid-work">
+                        <p class="work-title">Barra Móviles</p>
+                        <p class="work-desc">Aplicación móvil para gestión de pedidos y inventario en bares y restaurantes.</p>
+                    </div>
                     <div class="bottom-work">
                         <small>React Native</small><small>Firebase</small><small>Expo</small><small>Redux</small>
                     </div>
